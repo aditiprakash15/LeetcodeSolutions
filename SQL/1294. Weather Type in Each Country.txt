@@ -1,0 +1,12 @@
+1294. Weather Type in Each Country
+# Write your MySQL query statement below
+
+select c.country_name, T.weather_type from Countries c inner join 
+(select country_id, CASE  
+WHEN avg(weather_state)<=15 THEN "Cold"
+WHEN avg(weather_state)>= 25 THEN "Hot"
+ELSE "Warm"
+END as weather_type
+from Weather 
+where day between '20191101' and '20191130' 
+group by country_id)T on  c.country_id= T.country_id
