@@ -1,0 +1,6 @@
+1303. Find the Team Size
+# Write your MySQL query statement below
+
+select E.employee_id, A.team_size from Employee E inner join
+(select count(employee_id) as team_size, team_id  from Employee
+group by team_id) A on E.team_id=A.team_id
