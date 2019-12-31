@@ -1,0 +1,10 @@
+1126. Active Businesses
+
+# Write your MySQL query statement below
+
+select business_id from 
+(select E.business_id, A.event_type from Events E join 
+(select event_type, avg(occurences) as averageEventOccurance from Events
+group by event_type) A on E.event_type=A.event_type
+where E.occurences > A. averageEventOccurance) M 
+group by business_id having count(event_type)>1
