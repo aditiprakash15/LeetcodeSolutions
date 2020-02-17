@@ -1,0 +1,9 @@
+1280. Students and Examinations
+# Write your MySQL query statement below
+
+select T1.student_id,T1.student_name,T1.subject_name,
+coalesce(T2.attended_exams,0) as attended_exams from
+(select * from Students cross join Subjects) T1 left join 
+(select student_id, subject_name, count(subject_name) as attended_exams from Examinations group by student_id, subject_name) T2 
+on T1.student_id=T2.student_id and T1.subject_name=T2.subject_name
+order by T1.student_id, T1.subject_name

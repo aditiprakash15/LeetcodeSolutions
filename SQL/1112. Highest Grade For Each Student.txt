@@ -1,0 +1,8 @@
+1112. Highest Grade For Each Student
+/* Write your PL/SQL query statement below */
+
+select student_id, course_id, grade from 
+(select student_id, course_id, grade,
+RANK() OVER (partition by student_id order by grade DESC, course_id ASC) AS Rank
+from Enrollments) A
+where A.RANK= 1
