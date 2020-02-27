@@ -1,0 +1,9 @@
+1173. Immediate Food Delivery I
+
+select ROUND((count(A.delivery_id)/count(D.delivery_id))*100,2) as immediate_percentage from Delivery D left join
+(select delivery_id from Delivery
+where order_date = customer_pref_delivery_date)A on  D.delivery_id =A.delivery_id
+
+Using CASE STATEMENT
+
+select ROUND((sum(case when order_date= customer_pref_delivery_date then 1 else 0 end)/count(delivery_id))*100,2) as immediate_percentage from Delivery
