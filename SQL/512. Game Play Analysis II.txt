@@ -1,0 +1,6 @@
+512. Game Play Analysis II
+# Write your MySQL query statement below
+
+select T.player_id, device_id from Activity A join
+(select player_id, min(event_date) as mindate from Activity
+group by player_id)T on A.player_id=T.player_id and A.event_date = T.mindate
