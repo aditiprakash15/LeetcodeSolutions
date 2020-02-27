@@ -1,0 +1,6 @@
+1070. Product Sales Analysis III
+
+select T2.product_id,T2.first_year,T1.quantity, T1.price  from 
+(select *  from Sales join Product using(product_id))T1  join
+(select product_id, min(year) first_year from Sales 
+group by product_id)T2  where T1.product_id = T2.product_id and T2.first_year= T1.year
