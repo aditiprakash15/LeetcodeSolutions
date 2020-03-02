@@ -1,0 +1,6 @@
+1045. Customers Who Bought All Products
+# Write your MySQL query statement below
+
+select customer_id from
+(select customer_id, count(distinct product_key) prodcount from Customer group by customer_id)A
+where A.prodcount = (select count(distinct product_key) from Product)
