@@ -1,0 +1,8 @@
+1077. Project Employees III
+/* Write your PL/SQL query statement below */
+
+select project_id, employee_id from
+(select project_id, employee_id, experience_years,rank() over 
+(PARTITION BY project_id order by experience_years desc) as rank 
+ from Project join Employee using (employee_id)) T
+ where T.rank = 1
