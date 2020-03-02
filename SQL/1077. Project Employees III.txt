@@ -1,8 +1,18 @@
 1077. Project Employees III
 /* Write your PL/SQL query statement below */
 
+ORACLE- rank partition
+
 select project_id, employee_id from
 (select project_id, employee_id, experience_years,rank() over 
 (PARTITION BY project_id order by experience_years desc) as rank 
  from Project join Employee using (employee_id)) T
  where T.rank = 1
+
+# MySQL
+
+select T.project_id, employee_id from Project join Employee E using (employee_id) join 
+(select project_id, max(experience_years) as maxexp from Project join Employee using (employee_id)
+group by project_id) T using(project_id)
+where T.maxexp= E.experience_years
+
