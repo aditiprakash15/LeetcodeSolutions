@@ -1,6 +1,6 @@
 1070. Product Sales Analysis III
+# Write your MySQL query statement below
 
-select T2.product_id,T2.first_year,T1.quantity, T1.price  from 
-(select *  from Sales join Product using(product_id))T1  join
-(select product_id, min(year) first_year from Sales 
-group by product_id)T2  where T1.product_id = T2.product_id and T2.first_year= T1.year
+select A.product_id, A.first_year, quantity, price from Sales join
+(select product_id, min(year) first_year from Sales group by product_id) A 
+where Sales.year= A.first_year and Sales.product_id= A.product_id
