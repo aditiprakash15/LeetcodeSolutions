@@ -1,6 +1,7 @@
 1112. Highest Grade For Each Student
 /* Write your PL/SQL query statement below */
 
+
 ORACLE
 
 select student_id, course_id, grade from 
