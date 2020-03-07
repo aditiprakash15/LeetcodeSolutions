@@ -5,3 +5,5 @@ select T1.player_id, T1.event_date, sum(T2.games_played) as games_played_so_far
 from Activity T1 join Activity T2
 on T1.player_id=T2.player_id and T1.event_date>= T2.event_date
 group by 1,2
+
+
