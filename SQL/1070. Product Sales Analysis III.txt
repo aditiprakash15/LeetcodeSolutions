@@ -4,3 +4,4 @@
 select A.product_id, A.first_year, quantity, price from Sales join
 (select product_id, min(year) first_year from Sales group by product_id) A 
 where Sales.year= A.first_year and Sales.product_id= A.product_id
+
