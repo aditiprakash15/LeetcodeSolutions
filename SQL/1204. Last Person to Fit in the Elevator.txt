@@ -1,0 +1,9 @@
+1204. Last Person to Fit in the Elevator
+
+/* Write your PL/SQL query statement below */
+
+select top 1 person_name from
+(select person_name, sum(weight) over (order by turn) as running_sum
+from Queue)T
+where T.running_sum <= 1000
+order by T.running_sum desc
