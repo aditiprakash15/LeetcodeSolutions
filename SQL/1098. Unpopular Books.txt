@@ -1,0 +1,9 @@
+1098. Unpopular Books
+# Write your MySQL query statement below
+
+select book_id, name from Books left join
+(select book_id, sum(quantity) as qty from Orders 
+where dispatch_date< '2019-06-23' AND dispatch_date > '2018-06-23'
+group by book_id) T using(book_id)
+where available_from < '2019-05-23' AND (qty <10 OR qty IS NULL)
+order by 1
