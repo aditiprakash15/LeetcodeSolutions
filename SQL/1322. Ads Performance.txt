@@ -1,0 +1,8 @@
+1322. Ads Performance
+# Write your MySQL query statement below
+
+select ad_id, 
+ROUND((IFNULL(count(case when action = 'Clicked' THEN user_id ELSE NULL END)/(count(case when action = 'Clicked' THEN user_id ELSE NULL END)+count(case when action = 'Viewed' THEN user_id ELSE NULL END)),0))*100,2) as ctr
+from Ads
+group by ad_id
+order by ctr desc, ad_id asc
