@@ -1,0 +1,7 @@
+1350. Students With Invalid Departments
+
+# Write your MySQL query statement below
+
+select S.id,S.name from Students S left join Departments D 
+on S.department_id= D.id
+where D.id is NULL
