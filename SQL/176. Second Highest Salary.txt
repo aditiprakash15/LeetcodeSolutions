@@ -1,6 +1,7 @@
 176. Second Highest Salary
 /* Write your T-SQL query statement below */
 
+
 In MySQL server
 max(something) is either a value or NULL
 
