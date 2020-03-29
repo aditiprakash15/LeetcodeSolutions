@@ -1,0 +1,6 @@
+184. Department Highest Salary
+# Write your MySQL query statement below
+
+select D.Name as Department, E.Name as Employee, E.Salary as Salary from Employee E join Department D on E.DepartmentId= D.Id join
+(select DepartmentId, max(Salary) as sal from Employee 
+group by DepartmentId)T on T.DepartmentId = E.DepartmentId and T.sal = E.Salary

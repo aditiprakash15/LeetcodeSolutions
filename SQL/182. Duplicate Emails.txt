@@ -1,0 +1,7 @@
+182. Duplicate Emails
+# Write your MySQL query statement below
+
+select Email from
+(select count(Id), Email from Person
+group by Email
+having count(Id) > 1 ) T

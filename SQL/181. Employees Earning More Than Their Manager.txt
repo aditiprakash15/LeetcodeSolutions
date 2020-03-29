@@ -1,0 +1,6 @@
+181. Employees Earning More Than Their Manager
+# Write your MySQL query statement below
+
+select Emp.Name as Employee from Employee Emp join Employee Mgr on
+Emp.ManagerId= Mgr.Id
+where Mgr.Salary < Emp.Salary
