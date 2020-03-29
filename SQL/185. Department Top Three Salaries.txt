@@ -9,3 +9,4 @@ on T.DepartmentId= E.DepartmentId and T.Salary = E.Salary and E.Name = T.Name
 where T.rank <= 3
 order by 
 E.DepartmentId, T.rank
+
