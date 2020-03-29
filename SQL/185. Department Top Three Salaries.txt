@@ -1,4 +1,5 @@
 185. Department Top Three Salaries
+
 /* Write your T-SQL query statement below */
 
 select D.Name as Department, E.Name as Employee, E.Salary as Salary from Employee E join Department D on E.DepartmentId= D.Id join
