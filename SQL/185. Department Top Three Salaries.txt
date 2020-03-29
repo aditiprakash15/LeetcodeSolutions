@@ -2,6 +2,7 @@
 
 /* Write your T-SQL query statement below */
 
+
 select D.Name as Department, E.Name as Employee, E.Salary as Salary from Employee E join Department D on E.DepartmentId= D.Id join
 (select DepartmentId,Name,Salary, dense_rank() over(partition by DepartmentId order by Salary desc) as rank from Employee) T
 on T.DepartmentId= E.DepartmentId and T.Salary = E.Salary and E.Name = T.Name
