@@ -1,0 +1,15 @@
+/* Write your T-SQL query statement below */
+
+select stock_name, sum(BuyT+SellT) as capital_gain_loss from
+(select stock_name, operation, CASE operation WHEN 'Buy' THEN -1*(price) Else 0 END as 'BuyT',
+                   CASE operation WHEN 'Sell' THEN price ELSE 0 END AS 'SellT'
+from Stocks)A
+group by stock_name
+
+
+/* Write your T-SQL query statement below */
+
+select stock_name, sum(
+CASE operation WHEN 'Buy' THEN -price ELSE price END) as capital_gain_loss 
+from Stocks
+group by stock_name
